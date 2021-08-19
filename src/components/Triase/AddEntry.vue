@@ -26,6 +26,13 @@
             required
           >
           </v-text-field>
+          <v-text-field            
+            v-model="email"
+            :rules="emailRules"
+            label="Nama Orang Tua"
+            required
+          >
+          </v-text-field>
 
         </v-form>
     </v-container pa-5>

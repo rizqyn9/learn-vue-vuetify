@@ -104,6 +104,7 @@ export default {
   },
   mounted() {
     this.getData();
+    console.log("hi im mounted")
   },
   methods: {
     getData() {
