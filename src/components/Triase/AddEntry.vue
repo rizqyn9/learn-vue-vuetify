@@ -1,108 +1,108 @@
 <template>
   <v-card>
-    <v-container>
+    <v-container class="pa-8">
       <h1>Add Data</h1>
-      <v-form v-model="valid">
-          <v-text-field
-            v-model="firstname"
-            :rules="nameRules"
-            :counter="10"
-            label="Nama Pasien"
-            required
-          >
-          </v-text-field>
-          <v-text-field
-            v-model="lastname"
-            :rules="nameRules"
-            :counter="10"
-            label="Alamat"
-            required
-          ></v-text-field>
-
-          <v-text-field            
-            v-model="email"
-            :rules="emailRules"
-            label="Jenis Kelamin"
-            required
-          >
-          </v-text-field>
-          <v-text-field            
-            v-model="email"
-            :rules="emailRules"
-            label="Nama Orang Tua"
-            required
-          >
-          </v-text-field>
-
-        </v-form>
-    </v-container pa-5>
-  </v-form>
-      <!-- Tugas 3: Buat Tampilan untuk menambahkan data baru
-      input berisi  
-        1. Nama Pasien :
-        - Alphabet
-        - min. 10 karakter max. 50 karakter
-        - Required
-        - Jika text field tidak diisi maka memunculkan message : Perlu mengisi nama
-        - Jika text field diisi melebihi 50 karakter maka memunculkan message : Jumlah karakter
-        maksimal 50 karakter
-        2. Alamat
-        - Alpanumeric
-        - min. 10 karakter max. 100 karakter
-        - Required
-        - Show message error required : Perlu mengisi alamat
-        3. Jenis Kelamin
-        - Laki-laki/Perempuan
-        - Pilih salah satu
-        - Required
-        - Show message error required : Perlu mengisi jenis kelamin
-        4. Nama Orang tua
-        - Alphabet
-        - min. 10 karakter max. 50 karakter
-        - Show message error required : Jumlah karakter maksimal 50 karakter
-        5. Nama Penanggung Jawab
-        - Alphabet
-        - min. 10 karakter max. 50 karakter
-        - Show message error required : Jumlah karakter maksimal 50 karakter
-        6. Kesadaran
-        - Pilih salah satu dari Sadar penuh/ Respon Suara/ Respon Nyeri/ Tidak Nyeri
-        7. Tekanan Darah
-        - numeric
-        - min. 2 digit max. 3 digit
-        - Required
-        - Show message error required : Perlu mengisi tekanan darah
-        8. Nadi
-        - numeric
-        - 2 digit
-        - Required
-        - Show message error required : Perlu mengisi nadi
-        9. RR
-        - numeric
-        - 2 digit
-        - Required
-        - Show message error required : Perlu mengisi respiration rate
-        10. Suhu
-        - numeric
-        - 2 digit
-        - Required
-        - Show message error required : Perlu mengisi suhu
-        11. Saturasi O2
-        - numeric
-        - 2 digit
-        - Required
-        - Show message error required : Perlu mengisi saturasi O2
-        12. Nyeri
-        - numeric
-        - 1 digit
-        - Required
-        - Show message error required : Perlu mengisi angka nyeri
-        13. Berat badan
-        - numeric
-        - min. 2 digit max. 3 digit
-        14. Tinggi Badan
-        - numeric
-        - min. 2 digit max. 3 digit
-       -->
+      <v-form >
+        <v-text-field
+          v-model="form.name"
+          :rules="rules.namaPasien"
+          label="Nama Pasien"
+          required
+        ></v-text-field>
+        <v-text-field
+          type="text"
+          v-model="form.address"
+          :rules="rules.address"
+          label="Alamat"
+          required
+        ></v-text-field>
+        <v-select
+          v-model="form.gender"
+          :items="genders"
+          :rules="rules.gender"
+          item-text="name"
+          item-value="id"
+          label="Jenis Kelamin"
+          required
+        ></v-select>
+        <v-text-field
+          type="text"
+          v-model="form.parentName"
+          :rules="rules.parentName"
+          label="Nama Orang tua"
+          required
+        ></v-text-field>
+        <v-text-field
+          type="text"
+          v-model="form.guarantorName"
+          :rules="rules.guarantorName"
+          label="Nama Penanggung Jawab"
+          required
+        ></v-text-field>
+        <v-select
+          v-model="form.awareness"
+          :items="resource.awarenessType"
+          :rules="rules.awareness"
+          item-text="text"
+          item-value="value"
+          label="Kesadaran"
+          required
+        ></v-select>
+        <v-text-field
+          type="number"
+          v-model="form.sistole"
+          :rules="rules.sistole"
+          label="Tekanan Darah"
+          required
+        ></v-text-field>
+        <v-text-field
+          type="number"
+          v-model="form.pulse"
+          :rules="rules.pulse"
+          label="Nadi"
+          required
+        ></v-text-field>
+        <v-text-field
+          type="number"
+          v-model="form.rr"
+          :rules="rules.rr"
+          label="RR"
+          required
+        ></v-text-field>
+        <v-text-field
+          type="number"
+          v-model="form.temperature"
+          :rules="rules.temperature"
+          label="Suhu"
+          required
+        ></v-text-field>
+        <v-text-field
+          type="number"
+          v-model="form.saturation"
+          :rules="rules.saturation"
+          label="Saturasi O2"
+          required
+        ></v-text-field>
+        <v-text-field
+          type="number"
+          v-model="form.saturation"
+          :rules="rules.saturation"
+          label="Nyeri"
+          required
+        ></v-text-field>
+        <v-text-field
+          type="number"
+          v-model="form.weight"
+          :rules="rules.weight"
+          label="Berat badan"
+        ></v-text-field>
+        <v-text-field
+          type="number"
+          v-model="form.height"
+          :rules="rules.height"
+          label="Tinggi Badan"
+        ></v-text-field>
+      </v-form>
     </v-container>
   </v-card>
 </template>
@@ -113,11 +113,10 @@ import axios from 'axios';
 export default {
   name: 'Add Entry',
   data() {
-    return {
-      input: {
+    const defaultInput = Object.freeze({
         name: '',
         address: '',
-        gender: true,
+        gender: 0,
         parentName: '',
         guarantorName: '',
         awareness: '',
@@ -129,7 +128,68 @@ export default {
         painLevel: 0,
         weight: 0,
         height: 0,
+    })
+    return {
+      form : Object.assign({}, defaultInput),
+      rules : {
+        namaPasien : [
+          (val) => this.rulesAlphabet(val),
+          (val) => this.checkLength(val, 10,50)
+        ],
+        address : [
+          val => this.rulesAlphanumeric(val),
+          val => this.checkLength(val, 10,100)
+        ],
+        gender : [
+          val => { val != 0 || "Perlu mengisi jenis kelamin"}
+        ],
+        parentName : [
+          val => this.rulesAlphabet(val),
+          val => this.checkLength(val, 10,50)
+        ],
+        guarantorName:[
+          val => this.rulesAlphabet(val),
+          val => this.checkLength(val, 10,50)
+        ],
+        awareness : [
+
+        ],
+        sistole : [
+          val => val != 0 || "Perlu mengisi tekanan darah",
+          val => (val > 9 && val < 100) || "Cek lagi datanya"
+        ],
+        pulse : [
+          val => val != 0 || "Perlu mengisi nadi",
+          val => (val > 9) || "Cek lagi datanya"
+        ],
+        rr : [
+          val => val != 0 || "Perlu mengisi respiration rate",
+          val => (val > 9) || "Cek lagi datanya"
+        ],
+        temperature:[
+          val => val != 0 || "Perlu mengisi suhu",
+          val => (val > 9) || "Cek lagi datanya"
+        ],
+        saturation :[
+          val => val != 0 || "Perlu mengisi saturasi O2",
+          val => (val > 9) || "Cek lagi datanya"
+        ],
+        painLevel : [
+          val => val != 0 || "Perlu mengisi angka nyeri",
+          val => (val > 9) || "Cek lagi datanya"
+        ],
+        weight : [
+          val => (val > 9 && val < 100) || "Cek lagi datanya"
+        ],
+        height: [
+          val => (val > 9 && val < 100) || "Cek lagi datanya"
+        ]
       },
+      genders : [
+        {name : "Pilih salah satu", id: 0},
+        {name : "Laki-laki" , id: true},
+        {name : "Perempuan" , id: false}
+        ],
       resource: {
         awarenessType: [
           { value: 'fully_aware', text: 'Sadar Penuh' },
@@ -147,6 +207,15 @@ export default {
     };
   },
   methods: {
+    rulesAlphabet(val) {
+      return /^[a-zA-Z ]*$/.test(val) || "Text mus alphabet"
+    },
+    rulesAlphanumeric(val) {
+      return /^[a-zA-Z0-9]+$/.test(val) || "Text mus alphanumeric"
+    },
+    checkLength(val, min, max) {
+      return (val || '').length < min ? "Text wajib diisi" : (val || '').length < max || "text kebanyakan" 
+    },
     addData() {
       axios.post('https://desolate-scrubland-57861.herokuapp.com/patients', {
         name: 'Amanda Manopo',

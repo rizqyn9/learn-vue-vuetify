@@ -39,7 +39,7 @@ export default {
   name: 'TriaseIgd',
   data() {
 
-    
+
     return {
       dialog: false,
       resource: {
@@ -106,9 +106,10 @@ export default {
   },
   mounted() {
     this.getData();
-    console.log("hi im mounted")
+    // console.log("hi im mounted")
   },
   methods: {
+    // Get all data 
     getData() {
       // Tugas 2: lengkapi fungsi agar dapat menampilkan data pasien yang didapat dari backend
       // dokumentasi vuetify : https://vuetifyjs.com/en/components/data-tables
