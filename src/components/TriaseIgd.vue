@@ -38,6 +38,8 @@ export default {
   components: { AddEntry, EditEntry },
   name: 'TriaseIgd',
   data() {
+
+    
     return {
       dialog: false,
       resource: {
