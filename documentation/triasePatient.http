@@ -1,0 +1,62 @@
+# @name getData
+
+#@BaseUri = https://desolate-scrubland-57861.herokuapp.com
+
+
+### Get all data
+GET https://desolate-scrubland-57861.herokuapp.com/patients/196 HTTP/1.1
+Content-Type: application/json
+
+### Add data
+POST https://desolate-scrubland-57861.herokuapp.com/patients HTTP/1.1
+Content-Type: application/json
+
+{
+  "name": "afif alaminnnasdasd",
+  "sistole": 0,
+  "pulse": 0,
+  "rr": 0,
+  "temperature": 0,
+  "saturation": 0,
+  "painLevel": 0,
+  "weight": 0,
+  "height": 0,
+  "address": "string",
+  "gender": true,
+  "parentName": "string",
+  "guarantorName": "string",
+  "awareness": "fully_aware",
+  "result": "resuscitation_room",
+  "created_by": "string",
+  "updated_by": "string"
+}
+
+
+### Update data
+PUT https://desolate-scrubland-57861.herokuapp.com/patients/195 HTTP/1.1
+Content-Type: application/json
+
+{
+  "name": "string",
+  "sistole": 0,
+  "pulse": 0,
+  "rr": 0,
+  "temperature": 0,
+  "saturation": 0,
+  "painLevel": 0,
+  "weight": 0,
+  "height": 0,
+  "address": "string",
+  "gender": true,
+  "parentName": "string",
+  "guarantorName": "string",
+  "awareness": "fully_aware",
+  "result": "resuscitation_room",
+  "created_by": "string",
+  "updated_by": "string"
+}
+
+
+### Delete data
+DELETE https://desolate-scrubland-57861.herokuapp.com/patients/195 HTTP/1.1
+Content-Type: application/json
